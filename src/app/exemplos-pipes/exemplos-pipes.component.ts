@@ -23,6 +23,20 @@ export class ExemplosPipesComponent implements OnInit {
     this.livros.push(valor);
   }
 
+  obterLivros() {
+    if (
+      this.livros.length === 0 ||
+      this.filtro === undefined ||
+      this.filtro.trim() === ''
+    ) {
+      return this.livros;
+    }
+
+    return this.livros.filter(
+      (v: string) => v.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0
+    );
+  }
+
   constructor() {}
 
   ngOnInit(): void {}
